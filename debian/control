@@ -1,0 +1,12 @@
+Source: ros-jade-dynamixel-tutorials
+Section: misc
+Priority: extra
+Maintainer: Antons Rebguns <arebgun@gmail.com>
+Build-Depends: debhelper (>= 9.0.0), ros-jade-catkin
+Homepage: http://ros.org/wiki/dynamixel_driver
+Standards-Version: 3.9.2
+
+Package: ros-jade-dynamixel-tutorials
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-jade-dynamixel-controllers
+Description: Example configuration and launch file for dynamixel_motor stack.
