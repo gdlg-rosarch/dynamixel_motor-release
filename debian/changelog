@@ -1,0 +1,7 @@
+ros-kinetic-dynamixel-driver (0.4.0-0jessie) jessie; urgency=high
+
+  * stack is now catkin compatible
+
+ -- Antons Rebguns <arebgun@gmail.com>  Fri, 26 Jul 2013 06:00:00 -0000
+
+
