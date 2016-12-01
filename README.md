@@ -1,3 +1,31 @@
+## dynamixel_motor (kinetic) - 0.4.0-0
+
+The packages in the `dynamixel_motor` repository were released into the `kinetic` distro by running `/usr/bin/bloom-release dynamixel_motor --track kinetic --rosdistro kinetic --new-track` on `Thu, 01 Dec 2016 20:01:49 -0000`
+
+These packages were released:
+- `dynamixel_controllers`
+- `dynamixel_driver`
+- `dynamixel_motor`
+- `dynamixel_msgs`
+- `dynamixel_tutorials`
+
+Version of package(s) in repository `dynamixel_motor`:
+
+- upstream repository: https://github.com/arebgun/dynamixel_motor.git
+- release repository: unknown
+- rosdistro version: `null`
+- old version: `null`
+- new version: `0.4.0-0`
+
+Versions of tools used:
+
+- bloom version: `0.5.23`
+- catkin_pkg version: `0.2.10`
+- rosdep version: `0.11.5`
+- rosdistro version: `0.5.0`
+- vcstools version: `0.1.39`
+
+
 ## dynamixel_motor (jade) - 0.4.0-0
 
 The packages in the `dynamixel_motor` repository were released into the `jade` distro by running `/usr/bin/bloom-release --rosdistro jade --track jade dynamixel_motor --edit` on `Thu, 25 Jun 2015 03:41:25 -0000`
