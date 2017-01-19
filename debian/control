@@ -1,0 +1,13 @@
+Source: ros-indigo-dynamixel-controllers
+Section: misc
+Priority: extra
+Maintainer: Antons Rebguns <arebgun@gmail.com>
+Build-Depends: debhelper (>= 9.0.0), ros-indigo-catkin, ros-indigo-message-generation
+Homepage: http://ros.org/wiki/dynamixel_controllers
+Standards-Version: 3.9.2
+
+Package: ros-indigo-dynamixel-controllers
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-indigo-actionlib, ros-indigo-control-msgs, ros-indigo-diagnostic-msgs, ros-indigo-dynamixel-driver, ros-indigo-dynamixel-msgs, ros-indigo-rospy, ros-indigo-std-msgs, ros-indigo-trajectory-msgs
+Description: This package contains a configurable node, services and a spawner script to start, stop and restart one or more controller plugins.
+ Reusable controller types are defined for common Dynamixel motor joints. Both speed and torque can be set for each joint. This python package can be used by more specific robot controllers and all configurable parameters can be loaded via a yaml file.
