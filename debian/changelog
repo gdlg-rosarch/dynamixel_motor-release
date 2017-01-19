@@ -1,0 +1,13 @@
+ros-kinetic-dynamixel-msgs (0.4.1-0jessie) jessie; urgency=high
+
+
+
+ -- Antons Rebguns <arebgun@gmail.com>  Thu, 19 Jan 2017 07:00:00 -0000
+
+ros-kinetic-dynamixel-msgs (0.4.0-0jessie) jessie; urgency=high
+
+  * stack is now catkin compatible
+
+ -- Antons Rebguns <arebgun@gmail.com>  Fri, 26 Jul 2013 06:00:00 -0000
+
+
