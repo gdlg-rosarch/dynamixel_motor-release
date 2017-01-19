@@ -1,7 +1,0 @@
-ros-jade-dynamixel-motor (0.4.0-0vivid) vivid; urgency=high
-
-  * stack is now catkin compatible
-
- -- Antons Rebguns <arebgun@gmail.com>  Fri, 26 Jul 2013 07:00:00 -0000
-
-
