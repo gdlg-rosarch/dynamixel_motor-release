@@ -73,7 +73,8 @@ class SerialProxy():
                  update_rate=5,
                  diagnostics_rate=1,
                  error_level_temp=75,
-                 warn_level_temp=70):
+                 warn_level_temp=70,
+                 readback_echo=False):
         self.port_name = port_name
         self.port_namespace = port_namespace
         self.baud_rate = baud_rate
@@ -83,18 +84,19 @@ class SerialProxy():
         self.diagnostics_rate = diagnostics_rate
         self.error_level_temp = error_level_temp
         self.warn_level_temp = warn_level_temp
+        self.readback_echo = readback_echo
         
         self.actual_rate = update_rate
         self.error_counts = {'non_fatal': 0, 'checksum': 0, 'dropped': 0}
         self.current_state = MotorStateList()
         self.num_ping_retries = 5
         
-        self.motor_states_pub = rospy.Publisher('motor_states/%s' % self.port_namespace, MotorStateList)
-        self.diagnostics_pub = rospy.Publisher('/diagnostics', DiagnosticArray)
+        self.motor_states_pub = rospy.Publisher('motor_states/%s' % self.port_namespace, MotorStateList, queue_size=1)
+        self.diagnostics_pub = rospy.Publisher('/diagnostics', DiagnosticArray, queue_size=1)
 
     def connect(self):
         try:
-            self.dxl_io = dynamixel_io.DynamixelIO(self.port_name, self.baud_rate)
+            self.dxl_io = dynamixel_io.DynamixelIO(self.port_name, self.baud_rate, self.readback_echo)
             self.__find_motors()
         except dynamixel_io.SerialOpenError, e:
             rospy.logfatal(e.message)
@@ -126,9 +128,10 @@ class SerialProxy():
         rospy.set_param('dynamixel/%s/%d/max_torque' %(self.port_namespace, motor_id), torque_per_volt * voltage)
         
         velocity_per_volt = DXL_MODEL_TO_PARAMS[model_number]['velocity_per_volt']
+        rpm_per_tick = DXL_MODEL_TO_PARAMS[model_number]['rpm_per_tick']
         rospy.set_param('dynamixel/%s/%d/velocity_per_volt' %(self.port_namespace, motor_id), velocity_per_volt)
         rospy.set_param('dynamixel/%s/%d/max_velocity' %(self.port_namespace, motor_id), velocity_per_volt * voltage)
-        rospy.set_param('dynamixel/%s/%d/radians_second_per_encoder_tick' %(self.port_namespace, motor_id), velocity_per_volt * voltage / DXL_MAX_SPEED_TICK)
+        rospy.set_param('dynamixel/%s/%d/radians_second_per_encoder_tick' %(self.port_namespace, motor_id), rpm_per_tick * RPM_TO_RADSEC)
         
         encoder_resolution = DXL_MODEL_TO_PARAMS[model_number]['encoder_resolution']
         range_degrees = DXL_MODEL_TO_PARAMS[model_number]['range_degrees']
