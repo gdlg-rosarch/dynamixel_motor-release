@@ -1,0 +1,13 @@
+ros-jade-dynamixel-msgs (0.4.1-0vivid) vivid; urgency=high
+
+
+
+ -- Antons Rebguns <arebgun@gmail.com>  Thu, 19 Jan 2017 07:00:00 -0000
+
+ros-jade-dynamixel-msgs (0.4.0-0vivid) vivid; urgency=high
+
+  * stack is now catkin compatible
+
+ -- Antons Rebguns <arebgun@gmail.com>  Fri, 26 Jul 2013 06:00:00 -0000
+
+
