@@ -1,3 +1,31 @@
+## dynamixel_motor (jade) - 0.4.1-0
+
+The packages in the `dynamixel_motor` repository were released into the `jade` distro by running `/usr/bin/bloom-release --rosdistro jade --track jade dynamixel_motor --edit` on `Thu, 19 Jan 2017 23:32:20 -0000`
+
+These packages were released:
+- `dynamixel_controllers`
+- `dynamixel_driver`
+- `dynamixel_motor`
+- `dynamixel_msgs`
+- `dynamixel_tutorials`
+
+Version of package(s) in repository `dynamixel_motor`:
+
+- upstream repository: https://github.com/arebgun/dynamixel_motor.git
+- release repository: https://github.com/arebgun/dynamixel_motor-release.git
+- rosdistro version: `0.4.0-0`
+- old version: `0.4.0-0`
+- new version: `0.4.1-0`
+
+Versions of tools used:
+
+- bloom version: `0.5.23`
+- catkin_pkg version: `0.2.10`
+- rosdep version: `0.11.5`
+- rosdistro version: `0.5.0`
+- vcstools version: `0.1.39`
+
+
 ## dynamixel_motor (indigo) - 0.4.1-0
 
 The packages in the `dynamixel_motor` repository were released into the `indigo` distro by running `/usr/bin/bloom-release --rosdistro indigo --track indigo dynamixel_motor --edit` on `Thu, 19 Jan 2017 23:26:07 -0000`
