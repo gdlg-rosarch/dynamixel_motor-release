@@ -122,8 +122,8 @@ class JointTorqueControllerDualMotor(JointController):
         elif speed > self.joint_max_speed: speed = self.joint_max_speed
         self.last_commanded_torque = speed
         speed_raw = int(round(speed / self.VELOCITY_PER_TICK))
-        mcv_master = (self.master_id, speed_raw if speed_raw > 0 else 1)
-        mcv_slave = (self.slave_id, mcv_master[1])
+        mcv_master = (self.master_id, speed_raw)
+        mcv_slave = (self.slave_id, -mcv_master[1])
         self.dxl_io.set_multi_speed([mcv_master, mcv_slave])
 
 
@@ -175,7 +175,7 @@ class JointTorqueControllerDualMotor(JointController):
                 self.joint_state.goal_pos = self.last_commanded_torque
                 self.joint_state.current_pos = self.raw_to_rad(state.position, self.master_initial_position_raw, self.flipped, self.RADIANS_PER_ENCODER_TICK)
                 self.joint_state.error = 0.0
-                self.joint_state.velocity = (state.speed / DXL_MAX_SPEED_TICK) * self.MAX_VELOCITY
+                self.joint_state.velocity = state.speed * self.VELOCITY_PER_TICK
                 self.joint_state.load = state.load
                 self.joint_state.is_moving = state.moving
                 self.joint_state.header.stamp = rospy.Time.from_sec(state.timestamp)

@@ -1,7 +1,0 @@
-ros-indigo-dynamixel-controllers (0.4.0-0saucy) saucy; urgency=high
-
-  * stack is now catkin compatible
-
- -- Antons Rebguns <arebgun@gmail.com>  Fri, 26 Jul 2013 07:00:00 -0000
-
-
