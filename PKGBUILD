@@ -1,32 +1,38 @@
 # Script generated with Bloom
-pkgdesc="ROS - @(Description)"
-@[if Homepage and Homepage != '']url='@(Homepage)'@[end if]
+pkgdesc="ROS - This stack contains packages that are used to interface with Robotis Dynamixel line of servo motors. This stack was tested with and fully supports AX-12, AX-18, RX-24, RX-28, MX-28, RX-64, MX-64, EX-106 and MX-106 models."
+url='http://ros.org/wiki/dynamixel_driver'
 
-pkgname='@(Package)'
-pkgver='@(Version)_@(Pkgrel)'
+pkgname='ros-kinetic-dynamixel-motor'
+pkgver='0.4.1_1'
 pkgrel=1
 arch=('any')
-license=(@[for p in Licenses]'@p'@\n@[end for])
+license=('BSD'
+)
 
-makedepends=(@[for p in BuildDepends]'@p'@\n@[end for])
+makedepends=('ros-kinetic-catkin'
+)
 
-depends=(@[for p in Depends]'@p'@\n@[end for])
+depends=('ros-kinetic-dynamixel-controllers'
+'ros-kinetic-dynamixel-driver'
+'ros-kinetic-dynamixel-msgs'
+'ros-kinetic-dynamixel-tutorials'
+)
 
-conflicts=(@[for p in Conflicts]'@p'@\n@[end for])
-replaces=(@[for p in Replaces]'@p'@\n@[end for])
+conflicts=()
+replaces=()
 
-_dir=@(Name)
+_dir=dynamixel_motor
 source=()
 md5sums=()
 
 prepare() {
-    cp -R $startdir/@(Name) $srcdir/@(Name)
+    cp -R $startdir/dynamixel_motor $srcdir/dynamixel_motor
 }
 
 build() {
   # Use ROS environment variables
   source /usr/share/ros-build-tools/clear-ros-env.sh
-  [ -f /opt/ros/@(ROSDistribution)/setup.bash ] && source /opt/ros/@(ROSDistribution)/setup.bash
+  [ -f /opt/ros/kinetic/setup.bash ] && source /opt/ros/kinetic/setup.bash
 
   # Create build directory
   [ -d ${srcdir}/build ] || mkdir ${srcdir}/build
@@ -39,7 +45,7 @@ build() {
   cmake ${srcdir}/${_dir} \
         -DCMAKE_BUILD_TYPE=Release \
         -DCATKIN_BUILD_BINARY_PACKAGE=ON \
-        -DCMAKE_INSTALL_PREFIX=/opt/ros/@(ROSDistribution) \
+        -DCMAKE_INSTALL_PREFIX=/opt/ros/kinetic \
         -DPYTHON_EXECUTABLE=/usr/bin/python2 \
         -DPYTHON_INCLUDE_DIR=/usr/include/python2.7 \
         -DPYTHON_LIBRARY=/usr/lib/libpython2.7.so \
